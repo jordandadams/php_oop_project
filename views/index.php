@@ -1,5 +1,6 @@
 <?php
 include '../public/nav.php';
+include '../public/newUserModal.php';
 ?>
 
 
@@ -27,16 +28,18 @@ include '../public/nav.php';
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
 
-      //DataTables Function
-      $(document).ready(function(){
-        $("#users-table").DataTable();
-      });
+      $(function () {
 
-      //Open Modal
-      $("#newUserBtn").click(function() {
-        $("#newUserModal").modal('show');
-      });
+        //DataTables Function
+        $(document).ready(function(){
+          $("#users-table").DataTable();
+        });
 
+
+
+
+      });
+    
 
     </script>
 
@@ -55,7 +58,7 @@ include '../public/nav.php';
       <h4 class="mt-2 text-primary">All users in database!</h4>
     </div>
     <div class="col-lg-6">
-      <button type="button" class="btn btn-primary m-1 float-right" id="newUserBtn"><i class="fas fa-user-plus fa-lg"></i>&nbsp;&nbsp;Add New User</button>
+      <button type="button" class="btn btn-primary m-1 float-right" id="newUserBtn" data-toggle="modal" data-target="#newUserModal"><i class="fas fa-user-plus fa-lg"></i>&nbsp;&nbsp;Add New User</button>
       <button type="button" class="btn btn-success m-1 float-right"><i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Export to CSV</button>
     </div>
   </div>
@@ -84,31 +87,6 @@ include '../public/nav.php';
     </div>
   </div>
 </div>
-
-<!-- The New User Modal -->
-<div class="modal" id="newUserModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
 
 
 </body>
