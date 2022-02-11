@@ -1,6 +1,12 @@
 <?php
 include '../public/nav.php';
 include '../public/newUserModal.php';
+include '../classes/database.class.php';
+
+//instantiates db class and calls a method to test array based on params
+/*$dbObject = new Database();
+$fetch = $dbObject->getData('users', "first_name = 'Jordan'");
+print_r($fetch);*/
 ?>
 
 
