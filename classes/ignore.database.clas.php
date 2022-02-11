@@ -1,21 +1,8 @@
 <?php
 
-class Database {
-
-    protected $dsn = "mysql:host=localhost;dbname=php_oop";
-    protected $user = "root";
-    protected $pass = "";
-    protected $conn;
-
-    public function __construct() {
-        try {
-            $this->conn = new PDO($this->dsn,$this->user,$this->pass);
-            echo 'Connection Success!';
-        } 
-        catch(PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
+//ignore this
+/*
+class ignore {
 
     function getData($table, $where){
         
@@ -60,3 +47,5 @@ class Database {
 
 
 ?>
+
+*/
