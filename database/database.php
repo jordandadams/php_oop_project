@@ -9,7 +9,6 @@ class Database {
     public function __construct() {
         try {
             $this->conn = new PDO($this->dsn,$this->user,$this->pass);
-            echo 'Connection Success!';
         } 
         catch(PDOException $e) {
             echo $e->getMessage();

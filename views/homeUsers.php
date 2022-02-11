@@ -2,6 +2,7 @@
 include '../public/nav.php';
 include '../public/newUserModal.php';
 include '../classes/database.class.php';
+include '../js/homeUsers.class.js';
 
 //instantiates db class and calls a method to test array based on params
 /*$dbObject = new Database();
@@ -34,6 +35,8 @@ print_r($fetch);*/
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
 
+    const homeUsers = new HomeUsers();
+
       $(function () {
 
         //DataTables Function
@@ -42,10 +45,9 @@ print_r($fetch);*/
         });
 
 
-
+        
 
       });
-    
 
     </script>
 
