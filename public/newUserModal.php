@@ -19,7 +19,7 @@
                         <input type="text" name="lname" class="form-control mb-3" placeholder="Phone Number" required>
                     </div>
                     <div >
-                        <input type="submit" name="insert" id="insert" value="Add User" class="btn btn-success btn-block">
+                        <input type="submit" name="insert" id="insert_user" value="Add User" class="btn btn-success btn-block" onclick="homeUsers.insertUsers();">
                     </div>
                 </form>
             </div>

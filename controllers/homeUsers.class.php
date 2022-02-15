@@ -1,10 +1,31 @@
 <?php
 
+require '../classes/usersGet.class.php';
+
 class HomeUsers {
 
+    private $usersInfoArray;
+    private $requestArray;
     
+    function __construct($requestArray, $usersInfoArray) {
+        $this->requestArray = $requestArray;
+        $this->usersInfoArray = $usersInfoArray;
+    }
 
+    private function getUsersObject() {
+        $this->usersGet = new UsersGet($this->usersInfoArray);
+    }
 
+    private function insertUsers() {
+        $insertUsers = $this->getUsersObject();
+        return $insertUsers->insertUser();
+    }
+
+    public function executeRequest() {
+        if ($this->requestArray['request'] == 'insert_user') {
+            return $this->insertUsers();
+        }
+    }
 
 }
 

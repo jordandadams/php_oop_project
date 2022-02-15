@@ -1,6 +1,6 @@
 class HomeUsers {
 
-    showAllUsers() {
+    /*showAllUsers() {
         $.ajax({
             type: "POST",
             url: "../routes/homeUsers.php",
@@ -12,6 +12,26 @@ class HomeUsers {
                 console.log(result);
             }
         })
+    }*/
+
+    insertUsers() {
+        var self = this;
+
+        $.ajax({
+            type: "POST",
+            url: "../routes/homeUsers.php",
+            data: {
+                request: 'insert_user'
+            },
+            success: function(result) {
+                var result = JSON.parse(result);
+                if (result == '1') {
+                    location.reload();
+                } else {
+                    self.errorMessage();
+                }
+            }
+        });
     }
 
 

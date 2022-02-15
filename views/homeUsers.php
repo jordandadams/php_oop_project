@@ -1,8 +1,6 @@
 <?php
 include '../public/nav.php';
 include '../public/newUserModal.php';
-include '../classes/database.class.php';
-include '../js/homeUsers.class.js';
 
 //instantiates db class and calls a method to test array based on params
 /*$dbObject = new Database();
@@ -23,6 +21,8 @@ print_r($fetch);*/
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.4/datatables.min.css"/>
     
+</head>
+
     <!-- jQuery library & Latest compiled JavaScript | BS4 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -33,6 +33,8 @@ print_r($fetch);*/
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.4/datatables.min.js"></script>
     <!-- Sweet Alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Include JS File -->
+    <script src="../js/homeUsers.class.js?v=<?php echo filemtime('../js/homeUsers.class.js'); ?>"></script>
     <script type="text/javascript">
 
     const homeUsers = new HomeUsers();
@@ -51,7 +53,6 @@ print_r($fetch);*/
 
     </script>
 
-</head>
 <body>
 
 
