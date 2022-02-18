@@ -13,10 +13,10 @@
             <div class="modal-body">
                 <form action="" method="post" id="form-data">
                     <div class="form-group">
-                        <input type="text" name="fname" class="form-control mb-3" placeholder="First Name" required>
-                        <input type="text" name="lname" class="form-control mb-3" placeholder="Last Name" required>
-                        <input type="text" name="email" class="form-control mb-3" placeholder="Email Address" required>
-                        <input type="text" name="lname" class="form-control mb-3" placeholder="Phone Number" required>
+                        <input type="text" id="insert_user_modal_first_name" name="fname" class="form-control mb-3" placeholder="First Name" required>
+                        <input type="text" id="insert_user_modal_last_name" name="lname" class="form-control mb-3" placeholder="Last Name" required>
+                        <input type="text" id="insert_user_modal_email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+                        <input type="text" id="insert_user_modal_phone" name="phone" class="form-control mb-3" placeholder="Phone Number" required>
                     </div>
                     <div >
                         <input type="submit" name="insert" id="insert_user" value="Add User" class="btn btn-success btn-block" onclick="homeUsers.insertUsers();">

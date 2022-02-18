@@ -6,19 +6,20 @@ class HomeUsers {
 
     private $usersInfoArray;
     private $requestArray;
-    
+
     function __construct($requestArray, $usersInfoArray) {
         $this->requestArray = $requestArray;
         $this->usersInfoArray = $usersInfoArray;
     }
 
     private function getUsersObject() {
-        $this->usersGet = new UsersGet($this->usersInfoArray);
+        $users = new UsersGet();
+        return $users;
     }
 
     private function insertUsers() {
         $insertUsers = $this->getUsersObject();
-        return $insertUsers->insertUser();
+        return $insertUsers->insertUsers();
     }
 
     public function executeRequest() {
