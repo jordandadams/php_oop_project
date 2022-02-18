@@ -15,24 +15,39 @@ class UsersGetMapper {
     }
 
     public function getUserById($id) {
-        $sql = "SELECT * FROM users WHERE id = :id";
-        $stmt = $this->dbObject->conn->prepare($sql);
-        $stmt->execute(['id'=>$id]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $users = array();
+        $params = array($id);
+        $sql = "
+            select id, first_name, last_name, email, phone
+            from users
+            where id = ?
+            order by id, first_name, last_name, email, phone
+        ";
+        $array = $this->dbObject->query($sql, true, $params);
+        while($row = fetchAll($array, PDO::FETCH_COLUMN)) {
+            $users[$row['id']] = array(
+                'first_name'=>$row['first_name'],
+                'last_name'=>$row['last_name'],
+                'email'=>$row['email'],
+                'phone'=>$row['phone']
+            );
+        }
 
-        return $result;
+        return $users;
     }
 
-    public function getUsers() {
-        $data = array();
-        $sql = "SELECT * FROM users";
-        $prepare = $this->dbObject->conn->prepare($sql);
-        $prepare->execute();
-        $result = $prepare->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_ASSOC : returns an array indexed by column name as returned in your result set
-        foreach ($result as $row) {
-          $data[] = $row;  
+    public function getAllUsers() {
+        $users = array();
+        $sql = "
+            select id, first_name, last_name from users order by first_name
+        ";
+        $array = $this->dbObject->conn->query($sql);
+        while($row = fetchAll($array, PDO::FETCH_COLUMN)) {
+            $users[$row['id']] = array(
+                'first_name'=>$row['first_name'],
+                'last_name'=>$row['last_name'],
+            );
         }
-        return $data;
     }
 
     public function insertNewUser($fname, $lname, $email, $phone) {
@@ -60,7 +75,7 @@ class UsersGetMapper {
 }
 
     // test methods
-    // $ob = new UsersGetMapper();
-    // print_r($ob->getUsers());
+    $ob = new UsersGetMapper();
+    print_r($ob->getAllUsers());
 
 ?>

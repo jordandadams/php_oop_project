@@ -41,7 +41,7 @@ print_r($fetch);*/
 
             //DataTables Function
             $(document).ready(function(){
-                $("#users-table").DataTable();
+                $("#users_table").DataTable();
             });
 
 
@@ -74,8 +74,8 @@ print_r($fetch);*/
   <hr class="">
   <div class="row">
     <div class="col-lg-12">
-      <div class="table-responsive" id="showUser">
-        <table class="table table-striped table-sm table-bordered" id="users-table">
+      <div class="table-responsive" id="show_user">
+        <table class="table table-striped table-sm table-bordered" id="users_table">
           <thead>
             <tr class="text-center">
               <th>ID</th>
@@ -86,10 +86,7 @@ print_r($fetch);*/
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="text-center text-secondary">
-              <!-- use Js to populate rows -->
-            </tr>
+          <tbody id="users_table_tbody">
           </tbody>
         </table>
       </div>

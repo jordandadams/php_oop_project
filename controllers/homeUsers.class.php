@@ -10,11 +10,16 @@ class HomeUsers {
     function __construct($requestArray, $usersInfoArray) {
         $this->requestArray = $requestArray;
         $this->usersInfoArray = $usersInfoArray;
+        $this->createDependentObjects();
     }
 
-    private function getUsersObject() {
-        $users = new UsersGet();
-        return $users;
+    function createDependentObjects() {
+
+    }
+
+    private function getUsers() {
+        $users = new UsersGet($this->userInfoArray);
+        return $users->getUsers();
     }
 
     private function insertUsers() {
@@ -23,12 +28,19 @@ class HomeUsers {
     }
 
     public function executeRequest() {
+        if ($this->requestArray['request'] == 'get_users') {
+            return $this->getUsers();
+        }
         if ($this->requestArray['request'] == 'insert_user') {
             return $this->insertUsers();
         }
     }
 
 }
+
+    // test methods
+    //$ob = new HomeUsers();
+    //print_r($ob->getUsers());
 
 
 ?>

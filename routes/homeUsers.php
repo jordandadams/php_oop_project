@@ -8,7 +8,7 @@ require_once '../controllers/homeUsers.class.php';
 
 if (isset($_POST)) {
     try {
-        $report = new HomeUsers($_POST);
+        $report = new HomeUsers($_POST, $usersInfoArray);
         $result = $report->executeRequest();
         echo json_encode($result);
     } catch (Exception $e) {
